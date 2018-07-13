@@ -61,8 +61,8 @@ static const int64_t COIN_YEAR_REWARD = 7 * CENT;
 static const uint256 hashGenesisBlock("0x00000406049396274a303a9836d7e1ffdfdb4f4fa25c4b9f70548b042017f3ee");
 static const uint256 hashGenesisBlockTestNet("0x00000406049396274a303a9836d7e1ffdfdb4f4fa25c4b9f70548b042017f3ee");
 
-inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
+inline int64_t PastDrift(int64_t nTime)   { return nTime - (10 * 60); } // up to 10 minutes from the past
+inline int64_t FutureDrift(int64_t nTime) { return nTime + (10 * 60); } // up to 10 minutes from the future
 
 extern libzerocoin::Params* ZCParams;
 extern CScript COINBASE_FLAGS;
