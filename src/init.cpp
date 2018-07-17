@@ -262,11 +262,11 @@ std::string HelpMessage()
         "  -maxreceivebuffer=<n>  " + _("Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)") + "\n" +
         "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)") + "\n" +
 #ifdef USE_UPNP
-
+#if USE_UPNP
         "  -upnp                  " + _("Use UPnP to map the listening port (default: 1 when listening)") + "\n" +
 #else
         "  -upnp                  " + _("Use UPnP to map the listening port (default: 0)") + "\n" +
-
+#endif
 #endif
         "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n" +
         "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n" +
@@ -683,7 +683,7 @@ bool AppInit2()
     fDiscover = GetBoolArg("-discover", true);
     fNameLookup = GetBoolArg("-dns", true);
 #ifdef USE_UPNP
-    fUseUPnP = GetBoolArg("-upnp", true);
+    fUseUPnP = GetBoolArg("-upnp", USE_UPNP);
 #endif
 
     bool fBound = false;

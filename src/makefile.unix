@@ -151,7 +151,7 @@ OBJS= \
     obj/zerocoin/SpendMetaData.o \
     obj/zerocoin/ZeroTest.o
 
-all: crtxcoind
+all: cfacoind
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -192,14 +192,14 @@ obj/zerocoin/%.o: zerocoin/%.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-crtxcoind: $(OBJS:obj/%=obj/%)
+cfacoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
-crtxcoin-qt:
-	@echo "Building Crtxcoinqt.pro..."; cd ..; qmake -makefile Crtxcoin-qt.pro; chmod +x src/leveldb/build_detect_platform; make;
+cfacoin-qt:
+	@echo "Building Cfacoinqt.pro..."; cd ..; qmake -makefile Cfacoin-qt.pro; chmod +x src/leveldb/build_detect_platform; make;
 
 strip:
-	@echo "Stripping (shrinking) files..."; strip crtxcoind; cd ..; strip crtxcoin-qt;
+	@echo "Stripping (shrinking) files..."; strip cfacoind; cd ..; strip cfacoin-qt;
 
 clean:
 	-rm -f cfacoind

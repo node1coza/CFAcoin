@@ -53,12 +53,11 @@ static const int64_t CENT = 1000000;
 #if defined(_MSC_VER) || defined(__MSVCRT__)		
 #define PRId64  "I64d"		
 #define PRIu64  "I64u"		
-#define PRIx64  "llx"
-//"I64x"
+#define PRIx64  "I64x"		
 #else		
 #define PRId64  "lld"		
 #define PRIu64  "llu"		
-#define PRIx64  "llx"
+#define PRIx64  "llx"		
 #endif		
 #endif
 

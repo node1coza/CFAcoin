@@ -199,7 +199,7 @@ int CompareBigEndian(const unsigned char *c1, size_t c1len, const unsigned char 
     return 0;
 }
 
-// Order of scfa256k1's generator minus 1.
+// Order of secp256k1's generator minus 1.
 const unsigned char vchMaxModOrder[32] = {
     0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
     0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFE,
@@ -207,7 +207,7 @@ const unsigned char vchMaxModOrder[32] = {
     0xBF,0xD2,0x5E,0x8C,0xD0,0x36,0x41,0x40
 };
 
-// Half of the order of scfa256k1's generator minus 1.
+// Half of the order of secp256k1's generator minus 1.
 const unsigned char vchMaxModHalfOrder[32] = {
     0x7F,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
     0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
@@ -236,7 +236,7 @@ bool CKey::SetPrivKey(const CPrivKey& vchPrivKey)
     const unsigned char* pbegin = &vchPrivKey[0];
     if (d2i_ECPrivateKey(&pkey, &pbegin, vchPrivKey.size()))
     {
-        // In testing, d2i_CFArivateKey can return true
+        // In testing, d2i_ECPrivateKey can return true
         // but fill in pkey with a key that fails
         // EC_KEY_check_key, so:
         if (EC_KEY_check_key(pkey))
@@ -245,7 +245,7 @@ bool CKey::SetPrivKey(const CPrivKey& vchPrivKey)
             return true;
         }
     }
-    // If vchPrivKey data is bad d2i_CFArivateKey() can
+    // If vchPrivKey data is bad d2i_ECPrivateKey() can
     // leave pkey in a state where calling EC_KEY_free()
     // crashes. To avoid that, set pkey to NULL and
     // leak the memory (a leak is better than a crash)

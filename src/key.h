@@ -15,22 +15,22 @@
 
 #include <openssl/ec.h> // for EC_KEY definition
 
-// scfa160k1
+// secp160k1
 // const unsigned int PRIVATE_KEY_SIZE = 192;
 // const unsigned int PUBLIC_KEY_SIZE  = 41;
 // const unsigned int SIGNATURE_SIZE   = 48;
 //
-// scfa192k1
+// secp192k1
 // const unsigned int PRIVATE_KEY_SIZE = 222;
 // const unsigned int PUBLIC_KEY_SIZE  = 49;
 // const unsigned int SIGNATURE_SIZE   = 57;
 //
-// scfa224k1
+// secp224k1
 // const unsigned int PRIVATE_KEY_SIZE = 250;
 // const unsigned int PUBLIC_KEY_SIZE  = 57;
 // const unsigned int SIGNATURE_SIZE   = 66;
 //
-// scfa256k1:
+// secp256k1:
 // const unsigned int PRIVATE_KEY_SIZE = 279;
 // const unsigned int PUBLIC_KEY_SIZE  = 65;
 // const unsigned int SIGNATURE_SIZE   = 72;

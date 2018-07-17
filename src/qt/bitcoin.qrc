@@ -53,6 +53,7 @@
         <file alias="bkg2">res/images/bkg2.png</file>
         <file alias="2b">res/images/2b.png</file>
         <file alias="3b">res/images/3b.png</file>
+        <file alias="4b">res/images/4b.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>

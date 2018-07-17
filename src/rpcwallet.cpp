@@ -595,7 +595,7 @@ Value getbalance(const Array& params, bool fHelp)
         return  ValueFromAmount(nBalance);
     }
 
-    accountingDeprecationCheck();
+    //accountingDeprecationCheck();
 
     string strAccount = AccountFromValue(params[0]);
 

@@ -1022,18 +1022,8 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
-
 {
-    json_spirit::Array params;
-    json_spirit::Object param_object;
-    param_object.push_back(json_spirit::Pair("",""));
-
-    params.push_back(param_object);
-    int64_t nWalletBalance;
-    json_spirit::Value Balance = getbalance(params, false);
-    nWalletBalance =Balance.get_int64();
-
-    int64_t nSubsidy = nCoinAge * nWalletBalance * 7 / (100 * 365 * 33);
+    int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 7 / (365 * 33);
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
@@ -2886,7 +2876,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
-        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
+        if (pfrom->nVersion != MIN_PEER_PROTO_VERSION)
         {
             // disconnect from peers older than this proto version
             printf("partner %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);

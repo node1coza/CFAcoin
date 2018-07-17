@@ -19,10 +19,10 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Cfacoin"
-            VALUE "FileDescription",    "Cfacoin-Qt (OSS GUI client for Crtxcoin)"
+            VALUE "FileDescription",    "Cfacoin-Qt (OSS GUI client for Cfacoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "cfacoin-qt"
-            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The crtxcoin & CRTXoin developers, 2014 The Crtxcoin developers, 2018 The DAPScoin developers"
+            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The cfacoin & CRTXoin developers, 2014 The Cfacoin developers, 2018 The DAPScoin developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "cfacoin-qt.exe"
             VALUE "ProductName",        "Cfacoin-Qt"
